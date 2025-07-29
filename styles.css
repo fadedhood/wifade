@@ -1,56 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #000000;
-    color: #222;
+    background: #000 !important;
+    color: #eee;
     overflow-x: hidden;
     min-height: 100vh;
 }
 
 .container {
     position: relative;
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #000;
-}
-
-/* Animated starfield background */
-.stars, .stars2, .stars3 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.stars {
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="150" cy="120" r="0.5" fill="%23ffffff" opacity="0.5"/><circle cx="250" cy="200" r="1" fill="%23ffffff" opacity="0.2"/><circle cx="350" cy="80" r="0.5" fill="%23ffffff" opacity="0.4"/><circle cx="450" cy="300" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="550" cy="150" r="0.5" fill="%23ffffff" opacity="0.6"/><circle cx="650" cy="250" r="1" fill="%23ffffff" opacity="0.2"/><circle cx="750" cy="100" r="0.5" fill="%23ffffff" opacity="0.4"/><circle cx="850" cy="350" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="950" cy="200" r="0.5" fill="%23ffffff" opacity="0.5"/></svg>') repeat;
-    animation: move-stars 100s linear infinite;
-}
-
-.stars2 {
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="100" cy="100" r="0.5" fill="%23ffffff" opacity="0.4"/><circle cx="200" cy="180" r="1" fill="%23ffffff" opacity="0.2"/><circle cx="300" cy="60" r="0.5" fill="%23ffffff" opacity="0.5"/><circle cx="400" cy="220" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="500" cy="140" r="0.5" fill="%23ffffff" opacity="0.4"/><circle cx="600" cy="280" r="1" fill="%23ffffff" opacity="0.2"/><circle cx="700" cy="40" r="0.5" fill="%23ffffff" opacity="0.6"/><circle cx="800" cy="160" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="900" cy="320" r="0.5" fill="%23ffffff" opacity="0.4"/></svg>') repeat;
-    animation: move-stars 150s linear infinite;
-}
-
-.stars3 {
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="175" cy="175" r="0.5" fill="%23ffffff" opacity="0.3"/><circle cx="275" cy="125" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="375" cy="275" r="0.5" fill="%23ffffff" opacity="0.2"/><circle cx="475" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="575" cy="225" r="0.5" fill="%23ffffff" opacity="0.3"/><circle cx="675" cy="175" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="775" cy="325" r="0.5" fill="%23ffffff" opacity="0.2"/><circle cx="875" cy="125" r="1" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
-    animation: move-stars 200s linear infinite;
-}
-
-@keyframes move-stars {
-    from { transform: translateY(0px) translateX(0px); }
-    to { transform: translateY(-1000px) translateX(-1000px); }
 }
 
 .content {
@@ -59,6 +23,71 @@ body {
     text-align: center;
     max-width: 800px;
     padding: 2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    position: relative;
+    margin-bottom: 3rem;
+    display: inline-block;
+}
+
+.logo {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 60px rgba(0,0,0,0.7));
+    animation: float 6s ease-in-out infinite;
+}
+.big-logo {
+    max-width: 700px;
+}
+
+/* Project link styles */
+.project-link {
+    margin-top: 2.5rem;
+}
+.download-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.85em 2.5em;
+    background: linear-gradient(90deg, #181818 0%, #232323 100%);
+    color: #fff;
+    border-radius: 2em;
+    font-size: 1.18rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 24px 0 #000, 0 0 0 2px #232323 inset;
+    border: 1.5px solid #232323;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s, color 0.25s, box-shadow 0.25s, border 0.25s;
+}
+.download-link::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+.download-link:hover, .download-link:focus {
+    background: linear-gradient(90deg, #232323 0%, #181818 100%);
+    color: #ff2a2a;
+    border: 1.5px solid #ff2a2a;
+    box-shadow: 0 4px 32px 0 #ff2a2a, 0 0 0 2px #232323 inset;
+    text-shadow: 0 0 8px #ff2a2a;
+}
+.download-link:active {
+    background: #111;
+    color: #fff;
+    border: 1.5px solid #232323;
+    box-shadow: 0 2px 12px 0 #000;
 }
 
 .logo-container {
@@ -162,21 +191,41 @@ body {
 }
 .download-link {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 0.7em 2em;
-    background: #111;
-    color: #eee;
-    border-radius: 2em;
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-    box-shadow: 0 0 10px #000;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-}
-.download-link:hover {
-    background: #222;
+    margin-top: 1.5rem;
+    padding: 0.85em 2.5em;
+    background: linear-gradient(90deg, #181818 0%, #232323 100%);
     color: #fff;
-    box-shadow: 0 0 20px #111;
+    border-radius: 2em;
+    font-size: 1.18rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 24px 0 #000, 0 0 0 2px #232323 inset;
+    border: 1.5px solid #232323;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s, color 0.25s, box-shadow 0.25s, border 0.25s;
+}
+.download-link::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+.download-link:hover, .download-link:focus {
+    background: linear-gradient(90deg, #232323 0%, #181818 100%);
+    color: #00ffe7;
+    border: 1.5px solid #00ffe7;
+    box-shadow: 0 4px 32px 0 #00ffe7, 0 0 0 2px #232323 inset;
+    text-shadow: 0 0 8px #00ffe7;
+}
+.download-link:active {
+    background: #111;
+    color: #fff;
+    border: 1.5px solid #232323;
+    box-shadow: 0 2px 12px 0 #000;
 }
 }
 
